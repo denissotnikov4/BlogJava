@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--Главная Блог О нас-->
+<head>
+    <title>Блог сайта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+   <header th:insert="blocks/header :: header"></header>
+
+    <div class="container mt-5">
+        <h1>Блог сайта</h1>
+        <div th:each="el : ${posts}" class="alert alert-info mt-2">
+            <h3 th:text="${el.title}"/>
+            <p th:text="${el.anons}"/>
+            <a th:href="'/blog/' + ${el.id}" class="btn btn-warning">Детальнее</a>
+        </div>
+    </div>
+
+    <footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
